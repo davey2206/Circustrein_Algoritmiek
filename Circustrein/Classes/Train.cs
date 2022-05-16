@@ -23,16 +23,22 @@ namespace Circustrein.Classes
         public void AddWagons()
         {
             List<Wagon> WagonsToAdd = new List<Wagon>();
+            animals = animals.OrderByDescending(x => x.Type).ThenByDescending(x => x.Point).ToList();
             while (animals.Count != 0)
             {
                 List<Animal> AnimalsForWagons = new List<Animal>();
                 int count = 0;
                 int space = 0;
+                int minPoints = 0;
                 foreach (var animal in animals)
                 {
                     count = count + animal.Point;
-                    if (count < 11)
+                    if (count < 11 && animal.Point > minPoints)
                     {
+                        if (animal.Type == enumType.Flees)
+                        {
+                            minPoints = animal.Point;
+                        }
                         AnimalsForWagons.Add(animal);
                         space = count;
                     }

@@ -12,19 +12,24 @@ namespace Circustrein.Classes
         Middelgrote,
         klein
     }
+    public enum enumType
+    {
+        Flees = 1,
+        Gras = 0
+    }
     public class Animal
     {
         private int id;
-        private enumSize size;
         private int point;
-        private bool type;
+        private enumSize size;
+        private enumType type;
 
         public int Id { get { return id; } }
-        public enumSize Size { get { return size; } set { size = value; } }
         public int Point { get { return point; } set { point = value; } }
-        public bool Type { get { return type; } set { type = value; } }
+        public enumSize Size { get { return size; } set { size = value; } }
+        public enumType Type { get { return type; } set { type = value; } }
 
-        public Animal(int i, enumSize s, bool t)
+        public Animal(int i, enumSize s, enumType t)
         {
             id = i;
             size = s;

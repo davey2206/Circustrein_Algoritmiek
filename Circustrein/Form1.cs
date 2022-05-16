@@ -21,19 +21,19 @@ namespace Circustrein
         private void button1_Click(object sender, EventArgs e)
         {
             List<Animal> animals = new List<Animal>();
-            animals.Add(new Animal(1, enumSize.Groot, true));
-            animals.Add(new Animal(2, enumSize.Middelgrote, true));
-            animals.Add(new Animal(3, enumSize.Groot, true));
-            animals.Add(new Animal(4, enumSize.Groot, true));
-            animals.Add(new Animal(5, enumSize.klein, true));
-            animals.Add(new Animal(6, enumSize.klein, true));
-            animals.Add(new Animal(7, enumSize.Groot, true));
-            animals.Add(new Animal(8, enumSize.Middelgrote, true));
-            animals.Add(new Animal(9, enumSize.Middelgrote, true));
-            animals.Add(new Animal(10, enumSize.Groot, true));
-            animals.Add(new Animal(11, enumSize.klein, true));
-            animals.Add(new Animal(12, enumSize.klein, true));
-            animals.Add(new Animal(13, enumSize.klein, true));
+            animals.Add(new Animal(1, enumSize.Groot, enumType.Gras));
+            animals.Add(new Animal(2, enumSize.Middelgrote, enumType.Gras));
+            animals.Add(new Animal(3, enumSize.Groot, enumType.Gras));
+            animals.Add(new Animal(4, enumSize.Groot, enumType.Gras));
+            animals.Add(new Animal(5, enumSize.klein, enumType.Gras));
+            animals.Add(new Animal(6, enumSize.klein, enumType.Gras));
+            animals.Add(new Animal(7, enumSize.Groot, enumType.Flees));
+            animals.Add(new Animal(8, enumSize.Middelgrote, enumType.Flees));
+            animals.Add(new Animal(9, enumSize.Middelgrote, enumType.Gras));
+            animals.Add(new Animal(10, enumSize.Groot, enumType.Flees));
+            animals.Add(new Animal(11, enumSize.klein, enumType.Gras));
+            animals.Add(new Animal(12, enumSize.klein, enumType.Flees));
+            animals.Add(new Animal(13, enumSize.klein, enumType.Gras));
             Train train = new Train(animals);
             train.AddWagons();
 
@@ -59,7 +59,7 @@ namespace Circustrein
 
                 foreach (var animal in wagon.Animals)
                 {
-                    listBox.Items.Add(animal.Point.ToString());
+                    listBox.Items.Add(animal.Point.ToString() + " " + animal.Type.ToString());
                 }
 
                 TrainPanel.Controls.Add(listBox);
