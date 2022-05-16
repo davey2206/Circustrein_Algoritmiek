@@ -14,7 +14,7 @@ namespace Circustrein.Classes
     }
     public enum enumType
     {
-        Flees = 1,
+        Vlees = 1,
         Gras = 0
     }
     public class Animal

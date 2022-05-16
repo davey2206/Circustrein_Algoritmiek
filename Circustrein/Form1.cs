@@ -20,20 +20,38 @@ namespace Circustrein
 
         private void button1_Click(object sender, EventArgs e)
         {
+            TrainPanel.Controls.Clear();
+
             List<Animal> animals = new List<Animal>();
-            animals.Add(new Animal(1, enumSize.Groot, enumType.Gras));
-            animals.Add(new Animal(2, enumSize.Middelgrote, enumType.Gras));
-            animals.Add(new Animal(3, enumSize.Groot, enumType.Gras));
-            animals.Add(new Animal(4, enumSize.Groot, enumType.Gras));
-            animals.Add(new Animal(5, enumSize.klein, enumType.Gras));
-            animals.Add(new Animal(6, enumSize.klein, enumType.Gras));
-            animals.Add(new Animal(7, enumSize.Groot, enumType.Flees));
-            animals.Add(new Animal(8, enumSize.Middelgrote, enumType.Flees));
-            animals.Add(new Animal(9, enumSize.Middelgrote, enumType.Gras));
-            animals.Add(new Animal(10, enumSize.Groot, enumType.Flees));
-            animals.Add(new Animal(11, enumSize.klein, enumType.Gras));
-            animals.Add(new Animal(12, enumSize.klein, enumType.Flees));
-            animals.Add(new Animal(13, enumSize.klein, enumType.Gras));
+            Random rng = new Random();
+            for (int i = 0; i < 20; i++)
+            {
+                enumSize size = new enumSize();
+                enumType type = new enumType();
+                switch (rng.Next(3))
+                {
+                    case 0:
+                        size = enumSize.Groot;
+                        break;
+                    case 1:
+                        size = enumSize.Middelgrote;
+                        break;
+                    case 2:
+                        size = enumSize.klein;
+                        break;
+                }
+                switch (rng.Next(2))
+                {
+                    case 0:
+                        type = enumType.Gras;
+                        break;
+                    case 1:
+                        type = enumType.Vlees;
+                        break;
+                }
+                animals.Add(new Animal(i, size, type));
+            }
+
             Train train = new Train(animals);
             train.AddWagons();
 

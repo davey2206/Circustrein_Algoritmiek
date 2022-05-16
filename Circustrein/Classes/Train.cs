@@ -35,7 +35,7 @@ namespace Circustrein.Classes
                     count = count + animal.Point;
                     if (count < 11 && animal.Point > minPoints)
                     {
-                        if (animal.Type == enumType.Flees)
+                        if (animal.Type == enumType.Vlees)
                         {
                             minPoints = animal.Point;
                         }
